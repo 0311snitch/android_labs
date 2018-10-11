@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
-            case PERMISSION_READ_STATE:{
+            case PERMISSION_READ_STATE: {
                 if (grantResults.length >= 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     MyTelephonyManager();
                 } else {
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private void MyTelephonyManager() {
         TelephonyManager manager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         String imei = manager.getDeviceId();
-        TextView varText = (TextView)findViewById(R.id.bob);
+        TextView varText = (TextView) findViewById(R.id.bob);
         varText.setText(imei);
     }
 
