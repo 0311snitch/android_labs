@@ -53,6 +53,7 @@ def getVersion(){
     return values[0] + '.' + values[1]
 }
 
+
 def getNumberVersion(){
     def cmd = 'git describe --tags'
     Process process = cmd.execute()
