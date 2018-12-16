@@ -4,10 +4,9 @@ package com.example.snitch.snitchapp;
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.widget.TextView;
@@ -20,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        int permissonCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE);
+        int permissonCheck = ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE);
         if (permissonCheck == PackageManager.PERMISSION_GRANTED) {
             MyTelephonyManager();
         } else {
@@ -47,7 +46,9 @@ public class MainActivity extends AppCompatActivity {
         TelephonyManager manager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         String imei = manager.getDeviceId();
         TextView varText = (TextView) findViewById(R.id.bob);
-        varText.setText(imei);
+        int versionCode = BuildConfig.VERSION_CODE;
+        String versionName = BuildConfig.VERSION_NAME;
+        varText.setText(imei+versionName);
     }
 
 }
