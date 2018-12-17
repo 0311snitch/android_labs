@@ -50,7 +50,7 @@ public class AboutActivity extends AppCompatActivity {
 
     private void MyTelephonyManager() {
         TelephonyManager manager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-        String imei = manager.getDeviceId();
+        String imei = "IMEI - " + manager.getDeviceId();
         TextView imei_view = (TextView) findViewById(R.id.imei_view);
         int versionCode = BuildConfig.VERSION_CODE;
         imei_view.setText(imei);

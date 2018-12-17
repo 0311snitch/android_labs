@@ -64,11 +64,9 @@ public class MainActivity extends AppCompatActivity  implements BlankFragment.On
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.AboutActivity) {
-            Toast.makeText(MainActivity.this, "Action clicked", Toast.LENGTH_LONG).show();
             startActivity(new Intent(MainActivity.this, AboutActivity.class));
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }
