@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">SnitchApp</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment1111111111111111111111111111111111111111111111111111111111111111111111111111111111</string>
+    <string name="hello_blank_fragment_2">Hello blank fragment2222222222222222222222222222222222222222222222222222222222222222222222222222222222</string>
+    <string name="hello_blank_fragment_3">Hello blank fragment333333333333333333333333333333333333333333333333333333333333333333</string>
 </resources>
