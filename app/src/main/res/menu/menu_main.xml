@@ -4,4 +4,9 @@
         android:id="@+id/AboutActivity"
         android:orderInCategory="300"
         android:title="About" />
+    <item
+        android:id="@+id/Logout"
+        android:orderInCategory="300"
+        android:title="Logout" />
+
 </menu>

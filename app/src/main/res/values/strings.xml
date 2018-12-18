@@ -5,4 +5,7 @@
     <string name="hello_blank_fragment">Hello blank fragment1111111111111111111111111111111111111111111111111111111111111111111111111111111111</string>
     <string name="hello_blank_fragment_2">Hello blank fragment2222222222222222222222222222222222222222222222222222222222222222222222222222222222</string>
     <string name="hello_blank_fragment_3">Hello blank fragment333333333333333333333333333333333333333333333333333333333333333333</string>
+    <string name="sign_up_in">Sign Up/In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_in">Sign In</string>
 </resources>
