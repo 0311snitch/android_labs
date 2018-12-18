@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "877269510875",
+    "firebase_url": "https://snitchapp-d5a01.firebaseio.com",
+    "project_id": "snitchapp-d5a01",
+    "storage_bucket": "snitchapp-d5a01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:877269510875:android:9246ef0842b6bbae",
+        "android_client_info": {
+          "package_name": "com.example.snitch.snitchapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "877269510875-id24tqoejtb9bmi7463o3osb3pn20548.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.snitch.snitchapp",
+            "certificate_hash": "b6e7136ca62d5dac34d81b192899279aa2499898"
+          }
+        },
+        {
+          "client_id": "877269510875-bk0umv91oe5efam0evftofldqaih1rvc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3lT_nKa71_125zgyRunfpa5Ph0nC5C88"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "877269510875-bk0umv91oe5efam0evftofldqaih1rvc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
