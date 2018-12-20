@@ -20,4 +20,9 @@
         android:name="com.example.snitch.snitchapp.BlankFragment3"
         android:label="fragment_blank_fragment3"
         tools:layout="@layout/fragment_blank_fragment3" />
+    <fragment
+        android:id="@+id/edit_profile"
+        android:name="com.example.snitch.snitchapp.EditInfoFragment"
+        android:label="fragment_blank_fragment3"
+        tools:layout="@layout/fragment_edit_info" />
 </navigation>

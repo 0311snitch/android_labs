@@ -1,38 +1,30 @@
 package com.example.snitch.snitchapp;
 
 
-import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import androidx.annotation.NonNull;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.NavigationUI;
-
 import android.net.Uri;
 import android.os.Bundle;
-import android.telephony.TelephonyManager;
+import androidx.fragment.app.Fragment;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity  implements
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.NavigationUI;
+
+public class MainActivity extends AppCompatActivity  implements View.OnClickListener,
         BlankFragment.OnFragmentInteractionListener, BlankFragment2.OnFragmentInteractionListener,
-        BlankFragment3.OnFragmentInteractionListener {
+        BlankFragment3.OnFragmentInteractionListener, EditInfoFragment.OnFragmentInteractionListener {
     NavController navController;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -45,8 +37,15 @@ public class MainActivity extends AppCompatActivity  implements
         mAuth = FirebaseAuth.getInstance();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        setupBottomNavMenu();
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
+    }
+
+    public void setupBottomNavMenu() {
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
+        NavigationUI.setupWithNavController(bottomNav, navController);
     }
 
     @Override
@@ -57,6 +56,7 @@ public class MainActivity extends AppCompatActivity  implements
         {
             startActivity(new Intent(MainActivity.this, RegLogActivity.class));
         }
+        findViewById(R.id.button2).setOnClickListener(this);
     }
 
     @Override
@@ -92,5 +92,16 @@ public class MainActivity extends AppCompatActivity  implements
 
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(view.getId() == R.id.button2) {
+            Toast.makeText(MainActivity.this, "Ща будет переход",
+                    Toast.LENGTH_SHORT).show();
+            navController.navigate(R.id.edit_profile);
+            Toast.makeText(MainActivity.this, "Произошел переход",
+                    Toast.LENGTH_SHORT).show();
+        }
     }
 }
