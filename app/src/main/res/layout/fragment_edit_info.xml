@@ -7,19 +7,86 @@
     tools:context=".EditInfoFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="74dp"
+        android:text="Save" />
+
+    <EditText
+        android:id="@+id/edit_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/edit_phone"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="319dp"
+        android:ems="10"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/edit_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="400dp"
+        android:ems="10"
+        android:inputType="phone" />
+
+    <EditText
+        android:id="@+id/edit_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/edit_email"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="245dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/edit_surname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/edit_email"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="163dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="139dp"
-        android:layout_marginTop="233dp"
-        android:text="TextView" />
+        android:layout_below="@+id/edit_email"
+        android:layout_centerHorizontal="true"
+        android:text="Phone" />
 
+    <TextView
+        android:id="@+id/textview228"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_name"
+        android:layout_centerHorizontal="true"
+        android:text="Email" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_surname"
+        android:layout_centerHorizontal="true"
+        android:text="Name" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="135dp"
+        android:text="Surname" />
 </RelativeLayout>

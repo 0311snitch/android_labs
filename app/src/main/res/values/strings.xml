@@ -9,4 +9,8 @@
     <string name="sign_up">Sign Up</string>
     <string name="sign_in">Sign In</string>
     <string name="edit_profile">Edit profile</string>
+    <string name="email_address">Email address</string>
+    <string name="save">Save</string>
+    <string name="phone">Phone</string>
+    <string name="surname">Surname</string>
 </resources>

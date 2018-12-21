@@ -3,12 +3,22 @@ package com.example.snitch.snitchapp;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+
+import com.example.snitch.snitchapp.models.User;
+import com.example.snitch.snitchapp.storage.UserRepository;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+
+import java.util.Objects;
+
+import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 
 /**
@@ -19,15 +29,25 @@ import android.view.ViewGroup;
  * Use the {@link EditInfoFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class EditInfoFragment extends Fragment {
+public class EditInfoFragment extends Fragment implements View.OnClickListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private static final String TAG = "EditInfoFragment";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
+    private Button saveprofile;
     private String mParam2;
+    NavController navController;
+
+    private FirebaseAuth mAuth;
+    private DatabaseReference myRef;
+    private EditText nameEditText;
+    private EditText surnameEditText;
+    private EditText numberEditText;
+    private EditText emaiilEditText;
 
     private OnFragmentInteractionListener mListener;
 
@@ -77,6 +97,16 @@ public class EditInfoFragment extends Fragment {
     }
 
     @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        saveprofile = view.findViewById(R.id.save_button);
+        saveprofile.setOnClickListener(this);
+        nameEditText = view.findViewById(R.id.edit_name);
+        surnameEditText = view.findViewById(R.id.edit_surname);
+        numberEditText = view.findViewById(R.id.edit_phone);
+        emaiilEditText = view.findViewById(R.id.edit_email);
+    }
+
+    @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
@@ -106,5 +136,19 @@ public class EditInfoFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    @Override
+    public void onClick(View view) {
+        navController = Navigation.findNavController(Objects.requireNonNull(getActivity()), R.id.nav_host_fragment);
+        if(view.getId() == R.id.save_button) {
+            User user = new User();
+            user.setName(nameEditText.getText().toString());
+            user.setSurname(surnameEditText.getText().toString());
+            user.setPhone(numberEditText.getText().toString());
+            user.setEmail(emaiilEditText.getText().toString());
+            UserRepository.getInstance().setUser(user);
+            navController.navigate(R.id.profile_frag);
+        }
     }
 }

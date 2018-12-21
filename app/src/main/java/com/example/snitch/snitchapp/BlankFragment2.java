@@ -5,10 +5,16 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
+
+import java.util.Objects;
 
 
 /**
@@ -19,7 +25,7 @@ import android.view.ViewGroup;
  * Use the {@link BlankFragment2#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class BlankFragment2 extends Fragment {
+public class BlankFragment2 extends Fragment implements View.OnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -27,6 +33,8 @@ public class BlankFragment2 extends Fragment {
 
     // TODO: Rename and change types of parameters
     private String mParam1;
+    NavController navController;
+    private Button editprofile;
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
@@ -61,7 +69,6 @@ public class BlankFragment2 extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -74,6 +81,13 @@ public class BlankFragment2 extends Fragment {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        editprofile = view.findViewById(R.id.editprofile_button);
+        editprofile.setOnClickListener(this);
+
     }
 
     @Override
@@ -106,5 +120,14 @@ public class BlankFragment2 extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    @Override
+    public void onClick(View view) {
+        navController = Navigation.findNavController(Objects.requireNonNull(getActivity()), R.id.nav_host_fragment);
+
+        if(view.getId() == R.id.editprofile_button) {
+            navController.navigate(R.id.edit_profile);
+        }
     }
 }
