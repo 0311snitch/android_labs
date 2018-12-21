@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         {
             startActivity(new Intent(MainActivity.this, RegLogActivity.class));
         }
-        findViewById(R.id.button2).setOnClickListener(this);
     }
 
     @Override

@@ -9,20 +9,45 @@
         android:id="@+id/home_frag"
         android:name="com.example.snitch.snitchapp.BlankFragment"
         android:label="fragment_blank"
-        tools:layout="@layout/fragment_blank" />
+        tools:layout="@layout/fragment_blank" >
+        <deepLink app:uri="app://SnitchApp/home" />
+        <action
+            android:id="@+id/action_home_frag_to_profile_frag"
+            app:destination="@id/profile_frag" />
+        <action
+            android:id="@+id/action_home_frag_to_about_frag"
+            app:destination="@id/about_frag" />
+        <action
+            android:id="@+id/action_home_frag_to_edit_profile"
+            app:destination="@id/edit_profile" />
+    </fragment>
     <fragment
         android:id="@+id/profile_frag"
         android:name="com.example.snitch.snitchapp.BlankFragment2"
         android:label="fragment_blank_fragment2"
-        tools:layout="@layout/fragment_blank_fragment2" />
+        tools:layout="@layout/fragment_blank_fragment2" >
+        <action
+            android:id="@+id/action_profile_frag_to_about_frag"
+            app:destination="@id/about_frag" />
+        <action
+            android:id="@+id/action_profile_frag_to_edit_profile"
+            app:destination="@id/edit_profile" /><deepLink app:uri="app://SnitchApp/profile"/>
+    </fragment>
     <fragment
         android:id="@+id/about_frag"
         android:name="com.example.snitch.snitchapp.BlankFragment3"
         android:label="fragment_blank_fragment3"
-        tools:layout="@layout/fragment_blank_fragment3" />
+        tools:layout="@layout/fragment_blank_fragment3" >
+        <action
+            android:id="@+id/action_about_frag_to_home_frag"
+            app:destination="@id/home_frag" />
+        <action
+            android:id="@+id/action_about_frag_to_edit_profile"
+            app:destination="@id/edit_profile" /><deepLink app:uri="app://SnitchApp/rssfeed"/>
+    </fragment>
     <fragment
         android:id="@+id/edit_profile"
         android:name="com.example.snitch.snitchapp.EditInfoFragment"
         android:label="fragment_blank_fragment3"
-        tools:layout="@layout/fragment_edit_info" />
+        tools:layout="@layout/fragment_edit_info" ><deepLink app:uri="app://SnitchApp/profile/edit"/></fragment>
 </navigation>

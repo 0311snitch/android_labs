@@ -22,7 +22,7 @@ public class UserRepository implements ValueEventListener {
     private FirebaseUser firebaseUser;
     private User user;
 
-    private ArrayList<OnUserDMUpdatedListener> userDMUpdatedListeners;
+    private ArrayList<OnUserUpdatedListener> userUpdatedListeners;
     private ArrayList<OnProgressListener> progressListeners;
 
     private UserRepository() {
@@ -34,7 +34,7 @@ public class UserRepository implements ValueEventListener {
         firebaseUser = firebaseAuth.getCurrentUser();
         user = new User();
         databaseReference.child("users").child(firebaseUser.getUid()).addValueEventListener(this);
-        userDMUpdatedListeners = new ArrayList<OnUserDMUpdatedListener>();
+        userUpdatedListeners = new ArrayList<OnUserUpdatedListener>();
         progressListeners = new ArrayList<>();
     }
 
@@ -72,24 +72,24 @@ public class UserRepository implements ValueEventListener {
         databaseError = databaseError;
     }
 
-    public interface OnUserDMUpdatedListener {
+    public interface OnUserUpdatedListener {
         void OnUserUpdated(User user);
     }
 
     private void notifyUserDMUpdated() {
-        for (OnUserDMUpdatedListener listener:userDMUpdatedListeners) {
+        for (OnUserUpdatedListener listener:userUpdatedListeners) {
             listener.OnUserUpdated(this.user);
         }
     }
 
-    public void addOnUserDMUpdatedListener(OnUserDMUpdatedListener listener){
-        if (!userDMUpdatedListeners.contains(listener)) {
-            userDMUpdatedListeners.add(listener);
+    public void addOnUserDMUpdatedListener(OnUserUpdatedListener listener){
+        if (!userUpdatedListeners.contains(listener)) {
+            userUpdatedListeners.add(listener);
         }
     }
 
-    public void removeOnUserDMUpdatedListener(OnUserDMUpdatedListener listener) {
-        userDMUpdatedListeners.remove(listener);
+    public void removeOnUserDMUpdatedListener(OnUserUpdatedListener listener) {
+        userUpdatedListeners.remove(listener);
     }
 
     public void addOnProgressListener(OnProgressListener listener) {
