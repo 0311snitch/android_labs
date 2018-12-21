@@ -4,11 +4,8 @@ package com.example.snitch.snitchapp;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -17,20 +14,15 @@ import com.google.firebase.auth.FirebaseUser;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
-public class MainActivity extends AppCompatActivity  implements View.OnClickListener,
+public class MainActivity extends AppCompatActivity  implements
         BlankFragment.OnFragmentInteractionListener, BlankFragment2.OnFragmentInteractionListener,
         BlankFragment3.OnFragmentInteractionListener, EditInfoFragment.OnFragmentInteractionListener {
     NavController navController;
     private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
-
-    private EditText ETemail;
-    private EditText ETpassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,19 +57,14 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.AboutActivity) {
             startActivity(new Intent(MainActivity.this, AboutActivity.class));
             return true;
@@ -91,16 +78,5 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onClick(View view) {
-        if(view.getId() == R.id.button2) {
-            Toast.makeText(MainActivity.this, "Ща будет переход",
-                    Toast.LENGTH_SHORT).show();
-            navController.navigate(R.id.edit_profile);
-            Toast.makeText(MainActivity.this, "Произошел переход",
-                    Toast.LENGTH_SHORT).show();
-        }
     }
 }
